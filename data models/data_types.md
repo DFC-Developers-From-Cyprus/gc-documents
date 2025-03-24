@@ -10,4 +10,3 @@
 | Notification  | notification              | Represents notifications sent to users about events on the platform |
 | CleanupAction | cleanup_action            | Represents actions taken during environmental cleanup activities |
 | Complaint     | complaint                 | Represents user complaints related to pollution |
-| Achievement   | achievement               | Represents the achievements earned by users for their contributions |
