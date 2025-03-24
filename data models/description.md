@@ -60,14 +60,6 @@ Each **CleanupAction** is related to a specific **PollutedArea**. The goal of th
 
 ---
 
-## 8. **User** ↔ **Achievement**  
-Users earn **Achievements** based on their actions, such as participating in projects, completing cleanups, or reporting pollution. **Achievements** are linked to users and serve as a reward or recognition for contributions.
-
-- **User**: Receives **Achievements** for their activities (e.g., cleaning a certain number of areas or participating in a project).
-- **Achievement**: A recognition or reward system for **Users** based on their contributions.
-
----
-
 ## 9. **User** ↔ **Notification**  
 Users can receive notifications for various platform activities, including updates about their own actions, new **PollutedAreas**, or **Projects** they are involved in. Notifications are a direct form of engagement with the platform.
 
@@ -83,7 +75,7 @@ Users can submit **Complaints** about unauthorized pollution or environmental is
 - **Complaint**: Represents the formal complaint submitted by a **User** regarding pollution.
 
 ### Summary of Relationships:
-- **Users** are central to the platform and interact with various entities, such as **Projects**, **PollutedAreas**, **CleanupActions**, and **Achievements**.
+- **Users** are central to the platform and interact with various entities, such as **Projects**, **PollutedAreas**, **CleanupActions**.
 - **Projects** and **PollutedAreas** are closely linked, as projects aim to mitigate pollution in specific areas.
 - **PollutionMeasurements** provide the data that informs users and authorities about the state of pollution.
 - **Notifications** help keep users informed about changes and new actions regarding **PollutedAreas**, **CleanupActions**, and more.
