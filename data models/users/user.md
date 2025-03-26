@@ -12,5 +12,5 @@ A user represents an individual or an organization using the platform. They can 
 | role              | Role of the user (e.g., regular, volunteer, organization)          | string              | no     | yes      |
 | location          | Geographical location of the user                                  | string              | no     | no       |
 | profile_picture   | URL link to the user's profile picture                             | string (URL)        | no     | no       |
-| created_at        | Date and time when the user account was created                    | datetime            | no     | yes      |
-| updated_at        | Date and time when the user data was last updated                  | datetime            | no     | yes      |
+| created_at        | Date and time when the user account was created                    | datetime            | no     | no      |
+| updated_at        | Date and time when the user data was last updated                  | datetime            | no     | no      |
