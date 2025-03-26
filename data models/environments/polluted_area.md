@@ -11,5 +11,5 @@ Represents a polluted area in Cyprus. Each polluted area is associated with a po
 | pollution_level   | Level of pollution (low, medium, high)                             | string              |   no   |   yes    |
 | description       | Detailed description of the pollution                              | string              |  no    |    yes    |
 | location          | Geographical location of the polluted area                         | string              |   no   |    yes   |
-| created_at        | Date and time the polluted area was added to the system            | datetime            |   no   |    yes   |
-| updated_at        | Date and time the polluted area data was last updated             | datetime            |   no   |    yes   |
+| created_at        | Date and time the polluted area was added to the system            | datetime            |   no   |    no   |
+| updated_at        | Date and time the polluted area data was last updated             | datetime            |   no   |    no   |
