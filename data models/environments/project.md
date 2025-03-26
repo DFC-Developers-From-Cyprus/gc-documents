@@ -8,7 +8,7 @@ A project represents an environmental initiative on the platform, such as a clea
 | **Attributes (data)** |                                                             |                     |        |          |
 | title             | Title of the project                                               | string              | yes     | yes      |
 | description       | Detailed description of the project                                | string              | no     | yes      |
-| created_by        | User UUID of the creator (volunteer or organization)                 | integer             | no     | yes      |
+| created_by        | User UUID of the creator (volunteer or organization)                 | UUID             | no     | yes      |
 | status            | Current status of the project (active, completed, etc.)            | string              | no     | yes      |
 | location          | Geographical location of the project                               | string              | no     | yes       |
 | start_date        | Date when the project starts                                        | datetime            | no     | no      |
