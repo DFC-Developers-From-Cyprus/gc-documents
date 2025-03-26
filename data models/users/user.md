@@ -4,13 +4,13 @@ A user represents an individual or an organization using the platform. They can 
 
 | Naming            | Description                                                        | Type                | Unique | Required |
 |-------------------|--------------------------------------------------------------------|---------------------|--------|----------|
-| object_type       | The type of the object, which is 'user' in this case.              | String 'user'       | No     | Yes      |
+| object_type       | The type of the object, which is 'user' in this case.              | String 'user'       | no     | yes      |
 | **Attributes (data)** |                                                             |                     |        |          |
-| name              | User's full name                                                   | string              | No     | Yes      |
-| email             | User's email address                                               | string (email)      | Yes    | Yes      |
-| password          | Encrypted password for user authentication                        | string (encrypted)  | No     | Yes      |
-| role              | Role of the user (e.g., regular, volunteer, organization)          | string              | No     | Yes      |
-| location          | Geographical location of the user                                  | string              | No     | No       |
-| profile_picture   | URL link to the user's profile picture                             | string (URL)        | No     | No       |
-| created_at        | Date and time when the user account was created                    | datetime            | No     | Yes      |
-| updated_at        | Date and time when the user data was last updated                  | datetime            | No     | Yes      |
+| name              | User's full name                                                   | string              | no     | yes      |
+| email             | User's email address                                               | string (email)      | yes    | yes      |
+| password          | Encrypted password for user authentication                        | string (encrypted)  | no     | yes      |
+| role              | Role of the user (e.g., regular, volunteer, organization)          | string              | no     | yes      |
+| location          | Geographical location of the user                                  | string              | no     | no       |
+| profile_picture   | URL link to the user's profile picture                             | string (URL)        | no     | no       |
+| created_at        | Date and time when the user account was created                    | datetime            | no     | yes      |
+| updated_at        | Date and time when the user data was last updated                  | datetime            | no     | yes      |
