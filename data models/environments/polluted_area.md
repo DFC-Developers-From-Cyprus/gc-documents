@@ -6,7 +6,7 @@ Represents a polluted area in Cyprus. Each polluted area is associated with a po
 |-------------------|--------------------------------------------------------------------|---------------------|--------|----------|
 | object_type       | The type of the object, which is 'polluted_area' in this case.     | String 'polluted_area' |  no  |   yes    |
 | **Attributes (data)** |                                                             |                     |        |          |
-| project_id | ID of the project where the polluted area is associated with                        | integer              |  yes    |   yes    |
+| project_id | ID of the project where the polluted area is associated with                        | integer              |  no    |   yes    |
 | type_of_pollution | Type of pollution (air, water, soil, waste)                        | string              |   no   |    yes   |
 | pollution_level   | Level of pollution (low, medium, high)                             | string              |   no   |   yes    |
 | description       | Detailed description of the pollution                              | string              |  no    |    yes    |
