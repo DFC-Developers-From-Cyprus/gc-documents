@@ -10,7 +10,7 @@ A project represents an environmental initiative on the platform, such as a clea
 | description       | Detailed description of the project                                | string              | no     | yes      |
 | created_by        | User UUID of the creator (volunteer or organization)                 | UUID             | no     | yes      |
 | status            | Current status of the project (active, completed, etc.)            | string              | no     | yes      |
-| location          | Geographical location of the project                               | string              | no     | yes       |
+| location          | Geographical location of the project                               | string              | no     | no       |
 | start_date        | Date when the project starts                                        | datetime            | no     | no      |
 | end_date          | Date when the project ends                                          | datetime            | no     | no       |
 | created_at        | Date and time when the project was created                          | datetime            | no     | no      |
