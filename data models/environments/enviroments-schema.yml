@@ -157,24 +157,30 @@ components:
         - title
         - description
         - created_by
-        - status
+        - start_date
+        - end_date
+        - location
 
     PollutedArea:
       type: object
       properties:
+        uuid:
+          type: string
+          format: uuid
+          example: 'd47e7f97-2f3b-4236-b234-e5c1f487f0bf'
         project_uuid:
           type: string
           format: uuid
           example: 'd47e7f97-2f3b-4236-b234-e5c1f487f0bf'
         type_of_pollution:
           type: string
-          example: 'air'
+          example: 'soil'
         pollution_level:
           type: string
           example: 'high'
         description:
           type: string
-          example: 'Heavy industrial air pollution affecting nearby communities.'
+          example: 'Heavy industrial soil pollution affecting nearby communities.'
         location:
           type: string
           example: 'Nicosia, CY'
