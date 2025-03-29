@@ -24,12 +24,12 @@ paths:
 
   /project/{uuid}:
     get:
-      summary: Get a specific project by ID
-      operationId: getProjectById
+      summary: Get a specific project by UUID
+      operationId: getProjectByUUID
       parameters:
         - name: uuid
           in: path
-          description: ID of the project to fetch
+          description: UUID of the project to fetch
           required: true
           schema:
             type: string
@@ -57,6 +57,60 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Project'
+
+  /polluted-area:
+    post:
+      summary: Create a new polluted area
+      operationId: createPollutedArea
+      requestBody:
+        description: Polluted area object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PollutedArea'
+      responses:
+        '201':
+          description: Polluted area created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollutedArea'
+
+  /polluted-area/{uuid}:
+    get:
+      summary: Get a specific polluted area by UUID
+      operationId: getPollutedAreaByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of the polluted area to fetch
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Polluted area details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollutedArea'
+        '404':
+          description: Polluted area not found
+
+  /polluted-areas:
+    get:
+      summary: List all polluted areas
+      operationId: listPollutedAreas
+      responses:
+        '200':
+          description: A list of polluted areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PollutedArea'
 
 components:
   schemas:
@@ -104,3 +158,37 @@ components:
         - description
         - created_by
         - status
+
+    PollutedArea:
+      type: object
+      properties:
+        project_uuid:
+          type: string
+          format: uuid
+          example: 'd47e7f97-2f3b-4236-b234-e5c1f487f0bf'
+        type_of_pollution:
+          type: string
+          example: 'air'
+        pollution_level:
+          type: string
+          example: 'high'
+        description:
+          type: string
+          example: 'Heavy industrial air pollution affecting nearby communities.'
+        location:
+          type: string
+          example: 'Nicosia, CY'
+        created_at:
+          type: string
+          format: date-time
+          example: '2024-03-15T10:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-06-10T18:45:00Z'
+      required:
+        - project_uuid
+        - type_of_pollution
+        - pollution_level
+        - description
+        - location
