@@ -134,6 +134,114 @@ paths:
         '404':
           description: Pollution measurement not found
 
+  /complaint:
+    post:
+      summary: Create a new complaint
+      operationId: createComplaint
+      requestBody:
+        description: Complaint object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Complaint'
+      responses:
+        '201':
+          description: Complaint created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Complaint'
+
+  /complaint/{uuid}:
+    get:
+      summary: Get a specific complaint by UUID
+      operationId: getComplaintByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of the complaint to fetch
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Complaint details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Complaint'
+        '404':
+          description: Complaint not found
+
+  /complaints:
+    get:
+      summary: List all complaints
+      operationId: listComplaints
+      responses:
+        '200':
+          description: A list of complaints
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Complaint'
+
+  /cleanup-action:
+    post:
+      summary: Record a new cleanup action
+      operationId: createCleanupAction
+      requestBody:
+        description: Cleanup action object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CleanupAction'
+      responses:
+        '201':
+          description: Cleanup action recorded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CleanupAction'
+
+  /cleanup-action/{uuid}:
+    get:
+      summary: Get a specific cleanup action by UUID
+      operationId: getCleanupActionByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of the cleanup action to fetch
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Cleanup action details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CleanupAction'
+        '404':
+          description: Cleanup action not found
+
+  /cleanup-actions:
+    get:
+      summary: List all cleanup actions
+      operationId: listCleanupActions
+      responses:
+        '200':
+          description: A list of cleanup actions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CleanupAction'
+
 components:
   schemas:
     Project:
@@ -248,3 +356,81 @@ components:
           example: 35.7
       required:
         - polluted_area_uuid
+
+    Complaint:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: 'a67e7f97-2f3b-4236-b234-e5c1f487f0bf'
+        project_uuid:
+          type: string
+          format: uuid
+          example: 'd47e7f97-2f3b-4236-b234-e5c1f487f0bf'
+        user_uuid:
+          type: string
+          format: uuid
+          example: '550e8400-e29b-41d4-a716-446655440000'
+        location:
+          type: string
+          example: 'Limassol, CY'
+        complaint_date:
+          type: string
+          format: date-time
+          example: '2024-05-15T14:30:00Z'
+        description:
+          type: string
+          example: 'Complaint about illegal waste dumping.'
+        status:
+          type: string
+          example: 'open'
+        priority:
+          type: string
+          example: 'high'
+        photos:
+          type: array
+          items:
+            type: string
+            format: uri
+            example: 'https://example.com/images/complaint1.jpg'
+      required:
+        - project_uuid
+        - user_uuid
+        - description
+        - status
+        - priority
+
+    CleanupAction:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: 'b77e7f97-3f3b-4236-b234-e5c1f487f0cf'
+        project_uuid:
+          type: string
+          format: uuid
+          example: 'd47e7f97-2f3b-4236-b234-e5c1f487f0bf'
+        user_uuid:
+          type: string
+          format: uuid
+          example: '550e8400-e29b-41d4-a716-446655440001'
+        action_date:
+          type: string
+          format: date-time
+          example: '2024-06-20T10:00:00Z'
+        description:
+          type: string
+          example: 'Cleanup of industrial waste in the river area.'
+        photos:
+          type: array
+          items:
+            type: string
+            format: uri
+            example: 'https://example.com/images/cleanup1.jpg'
+      required:
+        - project_uuid
+        - user_uuid
+        - description
+        - photos
