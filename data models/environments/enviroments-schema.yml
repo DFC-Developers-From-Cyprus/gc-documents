@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   title: Enviroments API
-  description: Main API of web application - Green Cyprus
-  version: 0.0.0
+  description: Main API of web application - GCY
+  version: 1.0.0
 paths:
   /project:
     post:
@@ -112,6 +112,28 @@ paths:
                 items:
                   $ref: '#/components/schemas/PollutedArea'
 
+  /polluted-area/{uuid}/measurements:
+    get:
+      summary: Get a specific pollution measurement by UUID
+      operationId: getPollutionMeasurementByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of the polluted area
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Pollution measurement details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PollutionMeasurement'
+        '404':
+          description: Pollution measurement not found
+
 components:
   schemas:
     Project:
@@ -194,7 +216,35 @@ components:
           example: '2024-06-10T18:45:00Z'
       required:
         - project_uuid
-        - type_of_pollution
-        - pollution_level
-        - description
-        - location
+    
+    PollutionMeasurement:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: 'd47e7f97-2f3b-4236-b234-e5c1f487f0bf'
+        polluted_area_uuid:
+          type: string
+          format: uuid
+          example: 'f47e7f97-2f3b-4236-b234-e5c1f487f0bf'
+        pollution_level:
+          type: number
+          format: float
+          example: 120.5
+        pollution_type:
+          type: string
+          example: 'particulate matter'
+        measurement_date:
+          type: string
+          format: date-time
+          example: '2024-04-01T10:00:00Z'
+        sensor_type:
+          type: string
+          example: 'government'
+        value:
+          type: number
+          format: float
+          example: 35.7
+      required:
+        - polluted_area_uuid
